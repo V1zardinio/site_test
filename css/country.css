@@ -1,0 +1,20 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.body {
+  height: 91vh;
+}
+
+a {
+  display: block;
+  text-decoration: none;
+  color: black;
+}

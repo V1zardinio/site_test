@@ -1,0 +1,98 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8fafc;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+hr {
+    background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.2), transparent);
+    border: 0;
+    height: 1px;
+    content-box;
+    display: block;
+    margin-top: 3vh;
+    margin-bottom: 3vh;
+}
+
+.body {
+	height: 91vh;
+}
+
+.choose_text {
+	padding-top: 10vh;
+	margin-left: 3vw;
+	margin-bottom: 2vh;
+	font-size: 3vh;
+} 
+
+.country-conteiner {
+    display: flex;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    list-style: none;
+}
+
+a {
+	display: block;
+	text-decoration: none;
+	color: black;
+}
+
+.country-box {
+	max-width: 30%;
+	margin-left: 1vw;
+	margin-right: 1vw;
+	padding: 0.7%;
+	padding-left: 0.7%;
+	padding-right: 0.7%;
+	background: #FFFFFF;
+	justify-content: center;
+	align-items: center;
+	position: relative;
+	overflow: hidden;
+	border-radius: 10px;
+	transition: all 0.5s ease;
+	box-shadow: -1px 1px 8px 0px rgba(34, 60, 80, 0.2);
+}
+.country-box:before {
+	content: '';
+  	position: absolute;
+  	top: -50%;
+  	left: -50%;
+  	width: 200%;
+  	height: 200%;
+  	background: linear-gradient(
+    	0deg, 
+    	transparent, 
+    	transparent 30%, 
+    	rgba(0,255,255,0.3)
+  	);
+  	transform: rotate(-45deg);
+  	transition: all 0.5s ease;
+  	opacity: 0;
+}
+.country-box:hover {
+	ransform: scale(1.05);
+  	box-shadow: 0 0 20px rgba(0,255,255,0.5);
+}
+.country-box:hover:before {
+	opacity: 1;
+	transform: rotate(-45deg) translateY(100%);
+}
+
+.country-logo {
+    object-fit: cover;
+	height: 10vh;
+	min-width: 12vh;
+}
+
+.country-name {
+	font-size: 2vh;
+	text-align: center;
+	color: black;
+}
