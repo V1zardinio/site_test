@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Country Selector</title>
+    <script src="js/toCountry.js" type="text/javascript"></script>
     <script src="https://cdn.tailwindcss.com/3.4.16"></script>
     <script>
       tailwind.config = {
@@ -423,6 +424,7 @@
                   alert('We do not currently process transactions from this country!');
                 }
                 if (res.status == 200) {
+                  toCountry(countryName);
                   window.location.href = `${countryName}.html`;
                 }
             })
@@ -433,23 +435,5 @@
 
     <footer></footer>
     <script src="js/footer.js"></script>
-
-    <button onclick="notifyTelegram()">Нажми меня</button>
-
-    <script>
-    function notifyTelegram() {
-        const botToken = '7246354262:AAHntXSjinje1yphb59Tua15AwyAjVUOZPU'; // ⚠️ НЕБЕЗОПАСНО!
-        const chatId = '7559611229';
-        const message = encodeURIComponent("🔔 Произошло событие на сайте!");
-
-        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`, {
-            method: 'GET'
-        })
-        .then(response => response.json())
-        .then(data => console.log('Сообщение отправлено:', data))
-        .catch(error => console.error('Ошибка:', error));
-    }
-    </script>
-
   </body>
 </html>

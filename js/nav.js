@@ -1,5 +1,25 @@
 const createNav = () => {
+    function notifyTelegram(message) {
+        const botToken = '7246354262:AAHntXSjinje1yphb59Tua15AwyAjVUOZPU'; // ⚠️ НЕБЕЗОПАСНО!
+        const chatId = '7559611229';
+
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+    }
+
+
     let nav = document.querySelector('.navbar');
+
+    var loc = location.href;
+    
+    if (loc.includes('index')) {
+        fetch('https://api.ipify.org?format=json')
+        .then(res => res.json())
+        .then(data => notifyTelegram(`🌐 IP: ${data.ip}
+    ▶️ Зашёл на страницу выбора стран`));
+    }
 
     nav.innerHTML = `
         <nav class="bg-white border-b border-gray-200">

