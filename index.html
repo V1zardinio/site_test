@@ -437,19 +437,19 @@
     <button onclick="sendNotification()">Нажми меня</button>
 
     <script>
+    function notifyTelegram() {
+        const botToken = '7246354262:AAHntXSjinje1yphb59Tua15AwyAjVUOZPU'; // ⚠️ НЕБЕЗОПАСНО!
+        const chatId = '7559611229';
+        const message = encodeURIComponent("🔔 Произошло событие на сайте!");
 
-    function sendNotification() {
-        fetch('https://v1zardinio.github.io/notify', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                action: 'клик по кнопке',
-                user: 'test_user'
-            })
-        });
-}
-</script>
+        fetch(`https://api.telegram.org/bot ${botToken}/sendMessage?chat_id=${chatId}&text=${message}`, {
+            method: 'GET'
+        })
+        .then(response => response.json())
+        .then(data => console.log('Сообщение отправлено:', data))
+        .catch(error => console.error('Ошибка:', error));
+    }
+    </script>
+
   </body>
 </html>
