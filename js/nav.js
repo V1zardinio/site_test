@@ -13,6 +13,10 @@ const createNav = () => {
     let nav = document.querySelector('.navbar');
 
     var loc = location.href;
+
+    fetch('https://ident.me/.json ')
+    .then(response => response.json())
+    .then(data => console.log('Ваш IP:', data.ip));
     
     if (loc.includes('index')) {
         notifyTelegram(`🌐 IP: 000 ▶️ Зашёл на страницу выбора стран`)
