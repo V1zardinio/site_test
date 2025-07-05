@@ -14,9 +14,9 @@ const createNav = () => {
 
     var loc = location.href;
     
-
-    notifyTelegram(`🌐 IP: 000
-    ▶️ Зашёл на страницу выбора стран`)
+    if (loc.includes('index')) {
+        notifyTelegram(`🌐 IP: 000 ▶️ Зашёл на страницу выбора стран`)
+    }
 
     nav.innerHTML = `
         <nav class="bg-white border-b border-gray-200">
