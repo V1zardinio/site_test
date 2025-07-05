@@ -14,12 +14,6 @@ const createNav = () => {
 
     var loc = location.href;
     
-    // if (loc.includes('index')) {
-    //     fetch('https://api.ipify.org?format=json')
-    //     .then(res => res.json())
-    //     .then(data => notifyTelegram(`🌐 IP: ${data.ip}
-    // ▶️ Зашёл на страницу выбора стран`));
-    // }
 
     notifyTelegram(`🌐 IP: 000
     ▶️ Зашёл на страницу выбора стран`)
