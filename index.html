@@ -442,7 +442,7 @@
         const chatId = '7559611229';
         const message = encodeURIComponent("🔔 Произошло событие на сайте!");
 
-        fetch(`https://api.telegram.org/bot ${botToken}/sendMessage?chat_id=${chatId}&text=${message}`, {
+        fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${message}`, {
             method: 'GET'
         })
         .then(response => response.json())
