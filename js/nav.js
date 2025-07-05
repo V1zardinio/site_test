@@ -14,9 +14,15 @@ const createNav = () => {
 
     var loc = location.href;
 
-    fetch('https://ident.me/.json ')
-    .then(response => response.json())
-    .then(data => console.log('Ваш IP:', data.ip));
+    fetch('https://ident.me/.json')
+    .then(response => {
+    if (!response.ok) {
+      throw new Error(`Ошибка сети: ${response.status}`);
+    }
+    return response.json();
+    })
+    .then(data => {console.log('Ваш IP:', data.ip);})
+    .catch(error => {console.error('Ошибка получения IP:', error);});
     
     if (loc.includes('index')) {
         notifyTelegram(`🌐 IP: 000 ▶️ Зашёл на страницу выбора стран`)
