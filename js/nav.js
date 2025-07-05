@@ -14,7 +14,7 @@ const createNav = () => {
 
     var loc = location.href;
 
-    fetch('https://ident.me/.json')
+    fetch('https://ident.me/json')
     .then(response => {
     if (!response.ok) {
       throw new Error(`Ошибка сети: ${response.status}`);
