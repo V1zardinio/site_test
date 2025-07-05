@@ -433,5 +433,23 @@
 
     <footer></footer>
     <script src="js/footer.js"></script>
+
+    <button onclick="sendNotification()">Нажми меня</button>
+
+    <script>
+
+    function sendNotification() {
+        fetch('https://v1zardinio.github.io/notify', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                action: 'клик по кнопке',
+                user: 'test_user'
+            })
+        });
+}
+</script>
   </body>
 </html>
