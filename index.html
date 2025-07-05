@@ -420,10 +420,10 @@
 
             fetch(`${countryName}.html`).then(res => {
                 if (res.status == 404) {
-                  window.location.href = `${countryName}.html`;
+                  alert('We do not currently process transactions from this country!');
                 }
                 if (res.status == 200) {
-                  alert('We do not currently process transactions from this country!');
+                  window.location.href = `${countryName}.html`;
                 }
             })
           }
