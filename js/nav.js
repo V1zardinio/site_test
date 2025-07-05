@@ -14,12 +14,15 @@ const createNav = () => {
 
     var loc = location.href;
     
-    if (loc.includes('index')) {
-        fetch('https://api.ipify.org?format=json')
-        .then(res => res.json())
-        .then(data => notifyTelegram(`🌐 IP: ${data.ip}
-    ▶️ Зашёл на страницу выбора стран`));
-    }
+    // if (loc.includes('index')) {
+    //     fetch('https://api.ipify.org?format=json')
+    //     .then(res => res.json())
+    //     .then(data => notifyTelegram(`🌐 IP: ${data.ip}
+    // ▶️ Зашёл на страницу выбора стран`));
+    // }
+
+    notifyTelegram(`🌐 IP: 000
+    ▶️ Зашёл на страницу выбора стран`)
 
     nav.innerHTML = `
         <nav class="bg-white border-b border-gray-200">
