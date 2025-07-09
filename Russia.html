@@ -58,10 +58,17 @@
     </style>
 </head>
 <body>
-	<nav class="navbar"></nav>
-    <script src="js/nav.js"></script>
-
     <div class="body">
+    	<script>
+		      const params = Object.fromEntries(new URLSearchParams(window.location.href.substring(window.location.href.lastIndexOf('?')+1)).entries());
+		      if (params.a === undefined || params.u === undefined) {
+		        window.location.href = `index.html`;
+		      }
+		    </script>
+		    
+		<nav class="navbar"></nav>
+	    <script src="js/nav.js"></script>
+
     	<div class="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
 	        <div class="p-6">
 	            <h1 class="text-xl font-semibold text-gray-800 mb-1">Payment Service</h1>

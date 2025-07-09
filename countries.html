@@ -66,6 +66,13 @@
     </style>
   </head>
   <body class="min-h-screen">
+    <script>
+      const params = Object.fromEntries(new URLSearchParams(window.location.href.substring(window.location.href.lastIndexOf('?')+1)).entries());
+      if (params.a === undefined || params.u === undefined) {
+        window.location.href = `index.html`;
+      }
+    </script>
+
     <nav class="navbar"></nav>
     <script src="js/nav.js"></script>
 

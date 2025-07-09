@@ -11,16 +11,14 @@ const createNav = () => {
 
 
     let nav = document.querySelector('.navbar');
-
-    var loc = location.href;
     
-    // if (loc.includes('countries')) {
+    // if (location.href.includes('countries')) {
     //     fetch('https://api.ipify.org?format=json')
     //     .then(res => res.json())
     //     .then(data => notifyTelegram(`🌐 IP: ${data.ip} ▶️ Зашёл на страницу выбора стран`));
     // }
 
-    if (loc.includes('countries')) {
+    if (location.href.includes('countries')) {
         notifyTelegram(`🌐 IP: 000 ▶️ Зашёл на страницу выбора стран`)
     }
 
