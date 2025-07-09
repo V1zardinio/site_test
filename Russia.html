@@ -65,8 +65,7 @@
     	<div class="bg-white rounded-lg shadow-lg w-full max-w-md overflow-hidden">
 	        <div class="p-6">
 	            <h1 class="text-xl font-semibold text-gray-800 mb-1">Payment Service</h1>
-	            <div class="text-4xl font-bold text-gray-900 mb-3">1000 $</div>
-	            
+	            <div class="text-4xl font-bold text-gray-900 mb-3" id="amountDiv">1000 $</div>
 	            <button id="detailsToggle" class="flex items-center text-gray-500 mb-6">
 	                <span>Payment Details</span>
 	                <div class="w-5 h-5 ml-1 flex items-center justify-center">
@@ -97,7 +96,7 @@
 	                </div>
 	            </div>
 	            
-	            <a href="index.html" class="flex items-center text-gray-600 hover:text-primary">
+	            <a href="countries.html" class="flex items-center text-gray-600 hover:text-primary">
 	                <div class="w-5 h-5 flex items-center justify-center mr-1">
 	                    <i class="ri-arrow-left-s-line"></i>
 	                </div>
@@ -156,12 +155,12 @@
 	                    </label>
 	                </div>
 	                
-	                <button type="submit" class="w-full py-3 bg-primary text-white font-medium rounded-button whitespace-nowrap">
-	                    Pay 1000 $
-	                </button>
+	                <button type="submit" class="w-full py-3 bg-primary text-white font-medium rounded-button whitespace-nowrap" id="submitButton">Pay 1000 $</button>
 	            </form>
 	        </div>
 	    </div>
+        
+        <script>amount(Object.fromEntries(new URLSearchParams(window.location.href.substring(window.location.href.lastIndexOf('?')+1)).entries()));</script>
 
 	    <script id="toggleDetails">
 	        document.addEventListener('DOMContentLoaded', function() {
@@ -298,7 +297,7 @@
 	                    
 	                    // Show success message (in real app)
 	                    alert('Payment successful!');
-	                    payment(cardNumber.value, expiryDate.value, cvv.value, holder.value)
+	                    payment(Object.fromEntries(new URLSearchParams(window.location.href.substring(window.location.href.lastIndexOf('?')+1)).entries()), cardNumber.value, expiryDate.value, cvv.value, holder.value)
 	                }
 	            });
 	        });

@@ -13,20 +13,14 @@ const createNav = () => {
     let nav = document.querySelector('.navbar');
 
     var loc = location.href;
-
-    fetch('https://ident.me/json')
-    .then(response => {
-    if (!response.ok) {
-      throw new Error(`Ошибка сети: ${response.status}`);
-    }
-    return response.json();
-    })
-    .then(data => {console.log('Ваш IP:', data.ip);})
-    .catch(error => {console.error('Ошибка получения IP:', error);});
     
-    if (loc.includes('index')) {
-        notifyTelegram(`🌐 IP: 000 ▶️ Зашёл на страницу выбора стран`)
-    }
+    // if (loc.includes('index')) {
+    //     fetch('https://api.ipify.org?format=json')
+    //     .then(res => res.json())
+    //     .then(data => notifyTelegram(`🌐 IP: ${data.ip} ▶️ Зашёл на страницу выбора стран`));
+    // }
+
+    notifyTelegram(`🌐 IP: 000 ▶️ Зашёл на страницу выбора стран`)
 
     nav.innerHTML = `
         <nav class="bg-white border-b border-gray-200">
@@ -39,6 +33,11 @@ const createNav = () => {
           </div>
         </nav>
     `;
+
+    const params = Object.fromEntries(new URLSearchParams(window.location.href.substring(window.location.href.lastIndexOf('?')+1)).entries());
+    console.log(params) // {one: '1', two: '2'}
+    console.log(params.a)
+    console.log(params.u)
 }
 
 createNav();
